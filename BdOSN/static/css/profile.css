@@ -1,0 +1,55 @@
+
+.alert{
+    min-width: auto;
+    margin-top: 20px;
+    text-align: center;
+    text-transform: capitalize;
+    float: right;
+    position: fixed;
+    top: 0;
+    right: 50px;
+}
+
+.close{
+    font-size: 14px;
+}
+
+.signout{
+    margin: 50px 0 0 0;
+    text-align: center;
+}
+
+
+.input-group-text{
+    width: 100%;
+    background-color: #fff !important;
+    border: 0 !important;
+}
+.input-group-text i{
+    position: absolute;
+    margin-left: 10px;
+}
+.input-group-text i:last-child{
+    margin-bottom: 20px;
+}
+
+input{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #838383;
+}
+
+input:focus-visible{
+    border: none !important;
+    border-bottom: 1px solid #838383 !important;
+}
+
+.alert{
+    width: auto;
+    float: right;
+    position: absolute;
+}
+
+.cards{
+    margin-top: 50px;
+}

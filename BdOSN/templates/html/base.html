@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{% endblock title %}</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href=" {% static "css/bootstrap.min.css" %} ">
+    <link rel="stylesheet" href=" {% static "css/profile.css" %} ">
+    <link rel="stylesheet" href=" {% static "css/home.css" %} ">
+
+    {% block links %}{% endblock links %}
+
+</head>
+<body>
+
+    
+    <div class="container">
+      {% if messages %}
+          {% for message in messages %}
+          <div {% if message.tags %} class="alert alert-{{message.tags}} alert-dismissible fade show" {% endif %} role="alert">
+              {{message}}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% endfor %}
+      {% endif %}
+    </div>
+
+    
+    <div class="container">
+      {% if user.is_authenticated %}
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <a class="navbar-brand logo_name" href=" {% url "home" %} ">Conference Room Booking System</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href=" {% url "home" %} ">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href=" {% url "signout" %} ">Signout</a>
+              </li>           
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href=" {% url "profile" %} "> <i class="fa-solid fa-circle-user"></i> {{user.username}}</a>
+              </li>           
+          </div>
+        </div>
+      </nav>
+      {% endif %}
+
+
+
+      {% block content %}{% endblock content %}
+
+
+      <div class="footer pt-5 text-center">
+        <p> &copy; Nazmul Hossain All Rights Reserved | Made by nazmulhossainxi9@gmail.com</p>
+      </div>
+
+    </div>
+
+    <script src=" {% static "js/bootstrap.min.js" %} "></script>
+    <script src=" {% static "js/jquery.js" %} "></script>
+
+</body>
+</html>

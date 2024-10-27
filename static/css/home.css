@@ -1,0 +1,66 @@
+body {
+    background-color: #fff;
+}
+.stracture{
+    padding: 50px;
+}
+
+.greet{
+    font-size: 20px;
+    font-weight: 400;
+}
+.logo{
+    margin: 25px 0 10px 0;
+    font-size: 40px;
+    font-weight: 700;
+    color: rgb(0, 85, 56);
+}
+.red{
+    color: rgb(222, 0, 0);
+}
+.ptext{
+    margin: 15px 0 70px 0;
+}
+
+.signup {
+    max-width: 100%;
+}
+
+.form-control{
+    margin: 10px 0 0 0;
+    border: none !important;
+    border-bottom: 1px solid #797979 !important;
+    border-radius: 0 !important;
+    padding: 0 0 10px 40px;
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+}
+
+.input-group-text{
+    padding: 0 !important;
+    border: 0;
+    background-color: #fff !important;
+}
+
+.input-group-text i{
+    position: absolute;
+    margin-left: 10px;
+    padding-bottom: 5px;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.mb-3 i{
+    display: flex;
+}
+
+.login_button{
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+}

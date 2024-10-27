@@ -1,0 +1,32 @@
+form{
+    margin-top: 30px;
+    width: 400px;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+.form_tilte{
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    padding: 5px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+.form_tilte h4{
+    margin-top: 5px;
+}
+
+.data{
+    margin-top: 30px;
+    width: 100%;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}

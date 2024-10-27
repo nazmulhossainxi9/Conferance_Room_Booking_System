@@ -1,0 +1,32 @@
+{% extends "html/base.html" %}
+{% load static %}
+
+{% block title %}BdOSN Bookings | Profile{% endblock title %}
+
+{% block links %}
+    <link rel="stylesheet" href=" {% static "css/profile.css" %} ">
+{% endblock links %}
+
+{% block content %}
+    
+
+    <div class="row">
+
+        {% for data in rooms.values %}
+            <div class="col-md-4">
+                <div class="cards">
+                    <div class="card">
+                        <img src=" {% static "img/login.png" %} " class="card-img-top" alt="BdOSN">
+                        <div class="card-body">
+                        <h5 class="card-title">{{data.title}}</h5>
+                        <p class="card-text">{{data.text}}</p>
+                        <a href="{{ data.url }}" class="btn btn-warning">Book {{data.title}} </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
+

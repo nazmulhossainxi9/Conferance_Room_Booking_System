@@ -1,0 +1,73 @@
+{% extends "html/base.html" %}
+{% load static %}
+
+{% block title %} Booking Room {% endblock title %}
+
+{% block links %}
+    <link rel="stylesheet" href=" {% static "css/booking.css" %} ">
+{% endblock links %}
+
+{% block content %}
+
+
+    <div class="row">
+        <div class="col-lg-4">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form_tilte btn-primary">
+                    <h4>{{rooms}} Booking Form</h4>
+                </div>
+                {% for field in data %}
+                    <div class="mb-3 input-group-text">
+                        {% if field.name == "title"%}
+                            <i class="fa-solid fa-user"></i>{{field}} {{data.tags|striptags}} <br>
+                        {% elif field.name == "email" %}
+                            <i class="fa-solid fa-envelope"></i>{{field}} {{data.tags|striptags}} <br>
+                        {% elif field.name == "phone" %}
+                            <i class="fa-solid fa-phone"></i>{{field}} {{data.tags|striptags}} <br>
+                        {% elif field.name == "date" %}
+                            <i class="fa-solid fa-calendar"></i>{{field}} {{data.tags|striptags}} <br>
+                        {% elif field.name == "start_time" %}
+                        <i class="fa-solid fa-hourglass-start"></i>{{field}} {{data.tags|striptags}} <br>
+                        {% elif field.name == "end_time" %}
+                        <i class="fa-solid fa-hourglass-end"></i>{{field}} {{data.tags|striptags}} <br>
+                        {% endif %}
+                    </div>
+                {% endfor %} <br>
+                <input type="submit" value="Confirm Booking" class="btn btn-warning w-100 login_button">
+            </form>
+
+        </div>
+        <div class="col-lg-8">
+            <div class="data">
+                <div class="form_tilte btn-primary">
+                    <h4>Booked Schedules of {{rooms}}</h4>
+                </div>
+                <table class="table table-striped table-hover table-bordered mb-0">
+                    <tr>
+                        <th>Date</th>
+                        <th>Title</th>
+                        <th>Booked By</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                    </tr>
+                    {% for data in bookings %}
+                        <tr>
+                            <td> {{data.date}} </td>
+                            <td> {{data.title}} </td>
+                            <td> {{data.booked_by}} </td>
+                            <td> {{data.start_time}} </td>
+                            <td> {{data.end_time}} </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="5">No bookings available for this month.</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

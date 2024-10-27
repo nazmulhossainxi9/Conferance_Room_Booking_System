@@ -1,0 +1,50 @@
+{% extends "html/base.html" %}
+{% load static %}
+
+{% block title %}BdOSN Bookings | Home{% endblock title %}
+
+{% block links %}
+    {% comment %} <link rel="stylesheet" href=" {% static "css/home.css" %} "> {% endcomment %}
+{% endblock links %}
+
+{% block content %}
+
+
+    <div class="d-flex justify-content-center align-items-center min-vh-100">
+        <div class="row bg-white shadow-lg rounded stracture">
+            <!-- Left Side: Form -->
+            <div class="col-sm-5 d-flex align-items-center">
+                <div class="signup">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <h4 class="greet">Welcome Back!!!</h4>
+                        <h2 class="logo">Bd<span class="red">O</span class>SN</h2>
+                        <p class="ptext">A non-profitable research organization in your city to take you higher.</p>
+                        <!-- Displaying the form fields -->
+                    
+
+                        {% for data in form %}
+                            <div class="mb-3 input-group-text">
+                                {% if data.name == "username"%}
+                                    <i class="fa-solid fa-user"></i>{{data}} {{data.tags|striptags}} <br>
+                                {% else %}
+                                    <i class="fa-solid fa-lock"></i></i>{{data}} {{data.tags|striptags}} <br>
+                                {% endif %}
+                            </div>
+                        {% endfor %} <br>
+                        <input type="submit" value="Login" class="btn btn-warning w-100 login_button">
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Right Side: Image -->
+            <div class="col-sm-7 d-flex align-items-center justify-content-center">
+                <div class="image">
+                    <img src="{% static 'img/login.avif' %}" alt="Login Image" class="img-fluid rounded" style="max-height: 300px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}
